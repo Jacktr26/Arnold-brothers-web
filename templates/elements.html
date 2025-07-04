@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>About Us - Arnold Brothers</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+		<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+
+			<!-- Header -->
+			<header id="header">
+				<a href="{{ url_for('my_home') }}" class="logo">Arnold Brothers Guitar</a>
+			</header>
+
+			<!-- Nav -->
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+					<li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+					<li class="active"><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+					<li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
+					<li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
+				</ul>
+				<ul class="icons">
+					<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+					<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+					<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+					<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+				</ul>
+			</nav>
+
+			<!-- Main -->
+			<div id="main">
+				<section class="post">
+					<header class="major">
+						<h1>About Us</h1>
+						<p>Here's a little bit about who I am, what I do, and where I’m headed.</p>
+					</header>
+					<div class="image main"><img src="{{ url_for('static', filename='images/bground.jpg') }}" alt="" /></div>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus pharetra felis, eget feugiat nisi gravida sit amet. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ac arcu sed erat tincidunt facilisis. Etiam vel neque nec nisl sollicitudin dignissim. Sed cursus justo nec convallis dictum. Nullam quis commodo nulla, nec imperdiet erat.</p>
+					<p>Integer a fermentum nunc. Suspendisse euismod turpis non ligula feugiat, in fermentum magna congue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis semper velit at eros fermentum, ac scelerisque nulla lobortis. Quisque volutpat leo et erat accumsan, sed accumsan ligula interdum. Aliquam erat volutpat. Curabitur commodo porttitor magna in imperdiet.</p>
+					<p>Morbi dignissim libero vel metus imperdiet, nec ullamcorper turpis condimentum. Phasellus non arcu vitae urna eleifend euismod. Praesent nec velit quis velit eleifend vehicula. Fusce blandit id lorem ac tristique. Nunc sit amet porta enim. In tincidunt lorem magna, nec pharetra enim iaculis sed. Donec lacinia leo ut convallis bibendum.</p>
+				</section>
+			</div>
+
+			<!-- Footer -->
+			<footer id="footer">
+				<section class="split contact">
+					<section class="alt">
+						<h3>Address</h3>
+						<p>1234 Somewhere Road #87257<br />Nashville, TN 00000-0000</p>
+					</section>
+					<section>
+						<h3>Phone</h3>
+						<p><a href="#">(000) 000-0000</a></p>
+					</section>
+					<section>
+						<h3>Email</h3>
+						<p><a href="#">info@untitled.tld</a></p>
+					</section>
+					<section>
+						<h3>Social</h3>
+						<ul class="icons alt">
+							<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+					</section>
+				</section>
+			</footer>
+
+			<!-- Copyright -->
+			<div id="copyright">
+			<ul>
+				<li>&copy; Arnold Brothers Guitar</li>
+				<li><a href="{{ url_for('privacy_policy') }}">Privacy Policy</a></li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+		</div>
+
+		<!-- Scripts -->
+		<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+		<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+	</body>
+</html>

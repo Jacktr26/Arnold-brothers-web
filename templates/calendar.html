@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Availability Calendar - Arnold Brothers</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+  <style>
+    #calendar-container {
+      background: #fff;
+      padding: 2em;
+      border-radius: 0.5em;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1em;
+    }
+
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .day-name {
+      font-weight: bold;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 0.5em;
+    }
+
+    .day {
+      text-align: center;
+      padding: 1em 0;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .available {
+      background-color: #c4f4c4;
+    }
+
+    .unavailable {
+      background-color: #f7b3b3;
+    }
+
+    .outside {
+      color: #aaa;
+      background-color: #f2f2f2;
+    }
+
+    .calendar-nav button {
+      padding: 0.5em 1em;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      .calendar-grid {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body class="is-preload">
+  <div id="wrapper">
+
+    <!-- Header -->
+    <header id="header">
+      <a href="{{ url_for('html_page', page_name='index') }}" class="logo">Arnold Brothers Guitar</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="nav">
+      <ul class="links">
+        <li><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+	    <li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+        <li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+        <li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
+        <li class="active"><a href="{{ url_for('calendar') }}">Availability</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main -->
+    <div id="main" class="alt">
+      <section class="post">
+        <header class="major">
+          <h1>Availability Calendar</h1>
+          <p>🟩 Green = Available &nbsp;&nbsp; 🟥 Red = Booked</p>
+        </header>
+
+        <div id="calendar-container">
+          <div class="calendar-header">
+            <button onclick="changeMonth(-1)">← Previous</button>
+            <h2 id="calendar-title"></h2>
+            <button onclick="changeMonth(1)">Next →</button>
+          </div>
+
+          <div class="calendar-grid" id="calendar-days"></div>
+        </div>
+      </section>
+    </div>
+
+
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    const daysEl = document.getElementById('calendar-days');
+    const titleEl = document.getElementById('calendar-title');
+    let current = new Date();
+
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+    function generateCalendar(year, month) {
+      daysEl.innerHTML = '';
+      const firstDay = new Date(year, month, 1);
+      const lastDay = new Date(year, month + 1, 0);
+      const startDay = firstDay.getDay();
+      const totalDays = lastDay.getDate();
+
+      titleEl.textContent = `${firstDay.toLocaleString('default', { month: 'long' })} ${year}`;
+
+      // Weekday headers
+      weekdays.forEach(d => {
+        const el = document.createElement('div');
+        el.className = 'day-name';
+        el.textContent = d;
+        daysEl.appendChild(el);
+      });
+
+      // Blank days before month starts
+      for (let i = 0; i < startDay; i++) {
+        const blank = document.createElement('div');
+        blank.className = 'day outside';
+        daysEl.appendChild(blank);
+      }
+
+      // Actual days
+      for (let day = 1; day <= totalDays; day++) {
+        const cell = document.createElement('div');
+        const isAvailable = (day % 2 === 0); // Example rule: even days available
+        cell.className = `day ${isAvailable ? 'available' : 'unavailable'}`;
+        cell.textContent = day;
+        daysEl.appendChild(cell);
+      }
+    }
+
+    function changeMonth(offset) {
+      current.setMonth(current.getMonth() + offset);
+      generateCalendar(current.getFullYear(), current.getMonth());
+    }
+
+    generateCalendar(current.getFullYear(), current.getMonth());
+  </script>
+
+  <!-- Load JS and utility scripts -->
+  <!-- Footer -->
+    <div id="copyright">
+			<ul>
+				<li>&copy; Arnold Brothers Guitar</li>
+				<li><a href="{{ url_for('privacy_policy') }}">Privacy Policy</a></li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+  <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>

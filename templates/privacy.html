@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+</head>
+<body class="is-preload">
+  <div id="wrapper">
+    <!-- Header -->
+    <header id="header">
+      <a href="{{ url_for('my_home') }}" class="logo">Arnold Brothers Guitar</a>
+    </header>
+
+    <nav id="nav">
+			<ul class="links">
+				<li><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+				<li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+				<li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+				<li><a href="{{ url_for('html_page', page_name='gigs.html') }}">Past Gigs</a></li>
+				<li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
+			</ul>
+		</nav>
+
+    <!-- Main -->
+    <div id="main">
+      <section class="post">
+        <header class="major">
+          <h1>Privacy Policy</h1>
+          <p>Last updated: 18 June 2025</p>
+        </header>
+        <p>This website respects your privacy and is committed to protecting your personal data. This Privacy Policy explains what information is collected when you use this website and how that information is used and protected.</p>
+
+        <h2>1. Information I Collect</h2>
+        <p>If you choose to get in touch via the contact form, I may collect:</p>
+        <ul>
+          <li>Your <strong>name</strong></li>
+          <li>Your <strong>email address</strong></li>
+          <li>Your <strong>message</strong></li>
+        </ul>
+        <p>This information is submitted voluntarily by you.</p>
+
+        <h2>2. How Your Information Is Used</h2>
+        <p>I use the information you provide solely to:</p>
+        <ul>
+          <li>Respond to your enquiry or message</li>
+        </ul>
+        <p>Your information will <strong>not</strong> be used for marketing purposes and will <strong>never</strong> be shared or sold to third parties.</p>
+
+        <h2>3. How Your Data Is Stored</h2>
+        <p>Your message is sent securely and may be stored in an email inbox for reference. Reasonable steps are taken to protect this data, including access controls and password protection.</p>
+
+        <h2>4. Cookies</h2>
+        <p>This site does <strong>not</strong> currently use cookies or tracking tools.</p>
+
+        <h2>5. Your Rights</h2>
+        <p>Under the UK GDPR, you have the right to:</p>
+        <ul>
+          <li>Request a copy of the personal data held about you</li>
+          <li>Ask that your data be corrected or deleted</li>
+          <li>Withdraw consent at any time</li>
+        </ul>
+        <p>To exercise these rights, just contact me using the form on the site.</p>
+
+        <h2>6. Contact</h2>
+        <p>If you have any questions about this Privacy Policy, please feel free to get in touch via the contact form on this website.</p>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+      <section class="split contact">
+        <section class="alt">
+          <h3>Address</h3>
+          <p>1234 Somewhere Road #87257<br />Nashville, TN 00000-0000</p>
+        </section>
+        <section>
+          <h3>Email</h3>
+          <p><a href="#">info@untitled.tld</a></p>
+        </section>
+        <section>
+          <h3>Social</h3>
+          <ul class="icons alt">
+            <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+            <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+            <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+          </ul>
+        </section>
+      </section>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+  <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>

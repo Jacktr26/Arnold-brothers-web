@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Past Gigs - Arnold Brothers</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+	<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+</head>
+<body class="is-preload">
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="{{ url_for('html_page', page_name='index') }}" class="logo">Arnold Brothers Guitar</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+				<li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+				<li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+				<li class="active"><a href="{{ url_for('html_page', page_name='gigs.html') }}">Past Gigs</a></li>
+				<li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main" class="alt">
+			<section class="post">
+				<header class="major">
+					<h1>Our Gigs</h1>
+					<p>We’ve played at a mix of local venues, school events, small festivals, and parties.
+					Wherever we go, we bring a raw indie sound and a laid-back vibe that gets people moving.</p>
+				</header>
+
+				<div class="row">
+					<div class="col-6 col-12-small">
+						<span class="image fit"><img src="{{ url_for('static', filename='images/gig1.jpg') }}" alt="" /></span>
+						<h3>Festival Field Jam</h3>
+						<p>A summer set under the stars — lots of grass, amps, and dancing.</p>
+					</div>
+					<div class="col-6 col-12-small">
+						<span class="image fit"><img src="{{ url_for('static', filename='images/gig2.jpg') }}" alt="" /></span>
+						<h3>High School Hall</h3>
+						<p>The very first gig we played. Nervous? Yeah. But the crowd was wild.</p>
+					</div>
+					<div class="col-6 col-12-small">
+						<span class="image fit"><img src="{{ url_for('static', filename='images/gig3.jpg') }}" alt="" /></span>
+						<h3>Back Garden Bash</h3>
+						<p>A private birthday gig that turned into a full-on indie mosh.</p>
+					</div>
+					<div class="col-6 col-12-small">
+						<span class="image fit"><img src="{{ url_for('static', filename='images/gig4.jpg') }}" alt="" /></span>
+						<h3>Open Mic at the Hive</h3>
+						<p>Where we test new originals — low-key vibes and a great little crowd.</p>
+					</div>
+				</div>
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<div id="copyright">
+			<ul>
+				<li>&copy; Arnold Brothers Guitar</li>
+				<li><a href="{{ url_for('privacy_policy') }}">Privacy Policy</a></li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>

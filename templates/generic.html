@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Contact - Arnold Brothers</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+	<noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+</head>
+<body class="is-preload">
+
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<a href="{{ url_for('my_home') }}" class="logo">Arnold Brothers Guitar</a>
+		</header>
+
+		<!-- Nav -->
+		<nav id="nav">
+			<ul class="links">
+				<li><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+				<li class="active"><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+				<li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+				<li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
+				<li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
+			</ul>
+			<ul class="icons">
+				<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<section class="post">
+				<header class="major">
+					<h1>Contact Us</h1>
+					<p>If you'd like to get in touch, drop us a message using the form below.</p>
+					{% if success %}
+						<p style="color: green; font-weight: bold;">Thanks! Your message has been sent.</p>
+					{% endif %}
+				</header>
+
+				<form method="POST" action="{{ url_for('submit_form') }}">
+					<div class="fields">
+						<div class="field half">
+							<label for="name">Name</label>
+							<input type="text" name="name" id="name" required />
+						</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<input type="email" name="email" id="email" required />
+						</div>
+						<div class="field">
+							<label for="message">Message</label>
+							<textarea name="message" id="message" rows="6" required></textarea>
+						</div>
+					</div>
+					<ul class="actions">
+						<li><input type="submit" value="Send Message" class="primary" /></li>
+					</ul>
+				</form>
+			</section>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<section class="split contact">
+				<section class="alt">
+					<h3>Address</h3>
+					<p>1234 Somewhere Road #87257<br />Nashville, TN 00000-0000</p>
+				</section>
+				<section>
+					<h3>Phone</h3>
+					<p><a href="#">(000) 000-0000</a></p>
+				</section>
+				<section>
+					<h3>Email</h3>
+					<p><a href="#">info@untitled.tld</a></p>
+				</section>
+				<section>
+					<h3>Social</h3>
+					<ul class="icons alt">
+						<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+					</ul>
+				</section>
+			</section>
+		</footer>
+
+		<!-- Copyright -->
+		<div id="copyright">
+			<ul>
+				<li>&copy; Arnold Brothers Guitar</li>
+				<li><a href="{{ url_for('privacy_policy') }}">Privacy Policy</a></li>
+				<li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+			</ul>
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+	<script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
+</body>
+</html>
+
