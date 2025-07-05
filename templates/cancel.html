@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Booking Cancelled | Arnold Brothers Guitar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <!-- Header -->
+        <header id="header">
+            <a href="{{ url_for('html_page', page_name='index') }}" class="logo">Arnold Brothers Guitar</a>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            <section class="post">
+                <header class="major">
+                    <h1>Booking Cancelled</h1>
+                    <p>Your booking wasn’t completed. If you changed your mind, no worries — you can always try again!</p>
+                </header>
+                <a href="{{ url_for('booking') }}" class="button">Back to Booking</a>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p>&copy; Arnold Brothers Guitar</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>
+

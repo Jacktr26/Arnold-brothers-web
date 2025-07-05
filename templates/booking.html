@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Book a Gig | Arnold Brothers Guitar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="{{ url_for('html_page', page_name='index') }}" class="logo">Arnold Brothers Guitar</a>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul class="links">
+                <li><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+                <li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+                <li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+                <li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
+                <li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
+                <li class="active"><a href="{{ url_for('booking') }}">Book a Gig</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <section class="post">
+                <header class="major">
+                    <h1>Book Us for Your Gig</h1>
+                    <p>Secure your slot and bring live indie rock to your event.
+                    We charge £50 per hour — safe & secure payments via Stripe.</p>
+                </header>
+
+                <form method="POST" action="/create-checkout-session">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="gig_date">Select Date</label>
+                            <select name="gig_date" id="gig_date" required>
+                                <option value="">-- Select a date --</option>
+                                <option value="July 10, 2025">July 10, 2025</option>
+                                <option value="July 17, 2025">July 17, 2025</option>
+                                <option value="July 24, 2025">July 24, 2025</option>
+                            </select>
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><button type="submit" class="button primary">Book Now (£50)</button></li>
+                    </ul>
+                </form>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <p>&copy; Arnold Brothers Guitar</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+</body>
+</html>
+
