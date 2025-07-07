@@ -9,7 +9,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-stripe.api_key = os.getenv("STRIPE_API_KEY")
+stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 YOUR_DOMAIN = 'https://arnold-brothers-web.onrender.com'
 
 @app.route("/")
