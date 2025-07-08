@@ -63,7 +63,7 @@ def create_checkout_session():
                     'product_data': {
                         'name': f'Guitar Gig Booking ({gig_date})',
                     },
-                    'unit_amount': 5000 * 100,  # £50.00
+                    'unit_amount': 5000,
                 },
                 'quantity': 1,
             }],
@@ -74,6 +74,7 @@ def create_checkout_session():
                 'gig_date': gig_date
             }
         )
+
         return redirect(checkout_session.url, code=303)
 
     except Exception as e:
