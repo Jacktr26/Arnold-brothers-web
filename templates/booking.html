@@ -26,7 +26,6 @@
                 <li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
                 <li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
                 <li class="active"><a href="{{ url_for('html_page', page_name='booking') }}">Book a Gig</a></li>
-
             </ul>
         </nav>
 
@@ -35,24 +34,25 @@
             <section class="post">
                 <header class="major">
                     <h1>Book Us for Your Gig</h1>
-                    <p>Secure your slot and bring live indie rock to your event.
-                    We charge £50 per hour — safe & secure payments via Stripe.</p>
+                    <p>Secure your date and bring indie rock energy to your venue.<br>
+                    Payment is £50 via Stripe, guaranteed and secure.</p>
                 </header>
 
-                <form method="POST" action="/create-checkout-session">
+                <form action="{{ url_for('create_checkout_session') }}" method="POST">
                     <div class="fields">
                         <div class="field">
-                            <label for="gig_date">Select Date</label>
+                            <label for="gig_date">Select an available date:</label>
                             <select name="gig_date" id="gig_date" required>
-                                <option value="">-- Select a date --</option>
-                                <option value="July 10, 2025">July 10, 2025</option>
-                                <option value="July 17, 2025">July 17, 2025</option>
-                                <option value="July 24, 2025">July 24, 2025</option>
+                                <option value="" disabled selected>Select a date</option>
+                                {% for date in available_dates %}
+                                    <option value="{{ date }}">{{ date }}</option>
+                                {% endfor %}
                             </select>
                         </div>
                     </div>
+
                     <ul class="actions">
-                        <li><button type="submit" class="button primary">Book Now (£50)</button></li>
+                        <li><input type="submit" value="Pay £50 & Book" class="primary" /></li>
                     </ul>
                 </form>
             </section>
@@ -75,4 +75,3 @@
     <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 </body>
 </html>
-

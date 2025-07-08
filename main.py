@@ -2,15 +2,35 @@ from flask import Flask, render_template, url_for, request, redirect
 import csv
 import stripe
 import os
-from datetime import datetime
+import json
+from datetime import datetime, timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__)
-
 stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 YOUR_DOMAIN = 'https://arnold-brothers-web.onrender.com'
+BOOKINGS_FILE = 'bookings.json'
+
+
+# --- Booking logic ---
+
+def get_booked_dates():
+    if os.path.exists(BOOKINGS_FILE):
+        with open(BOOKINGS_FILE, 'r') as file:
+            return json.load(file)['booked_dates']
+    return []
+
+def add_booked_date(date):
+    data = get_booked_dates()
+    if date not in data:
+        data.append(date)
+        with open(BOOKINGS_FILE, 'w') as file:
+            json.dump({'booked_dates': data}, file)
+
+
+# --- Routes ---
 
 @app.route("/")
 def my_home():
@@ -40,10 +60,18 @@ def calendar():
 
 @app.route("/booking")
 def booking():
-    return render_template("booking.html")
+    # Generate next 30 days (excluding already booked)
+    today = datetime.today()
+    all_dates = [(today + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(30)]
+    booked = get_booked_dates()
+    available = [d for d in all_dates if d not in booked]
+    return render_template("booking.html", available_dates=available)
 
 @app.route("/success")
 def success():
+    gig_date = request.args.get('gig_date')
+    if gig_date:
+        add_booked_date(gig_date)
     return render_template("success.html")
 
 @app.route("/cancel")
@@ -53,7 +81,13 @@ def cancel():
 @app.route("/create-checkout-session", methods=["POST"])
 def create_checkout_session():
     try:
-        gig_date = request.form['gig_date']
+        gig_date = request.form.get('gig_date')
+        if not gig_date:
+            return "Gig date is required.", 400
+
+        booked = get_booked_dates()
+        if gig_date in booked:
+            return f"Sorry, {gig_date} is already booked.", 400
 
         checkout_session = stripe.checkout.Session.create(
             payment_method_types=['card'],
@@ -68,17 +102,18 @@ def create_checkout_session():
                 'quantity': 1,
             }],
             mode='payment',
-            success_url=YOUR_DOMAIN + '/success',
-            cancel_url=YOUR_DOMAIN + '/cancel',
-            metadata={
-                'gig_date': gig_date
-            }
+            success_url=f"{YOUR_DOMAIN}/success?gig_date={gig_date}",
+            cancel_url=f"{YOUR_DOMAIN}/cancel",
+            metadata={'gig_date': gig_date}
         )
 
         return redirect(checkout_session.url, code=303)
 
     except Exception as e:
-        return str(e)
+        return f"An error occurred: {e}", 500
+
+
+# --- Contact Form ---
 
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
