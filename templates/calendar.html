@@ -1,66 +1,62 @@
-{% set current_month = today.split('-')[1]|int %}
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
     <title>Availability - Arnold Brothers Guitar</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
     <style>
+        .calendar-nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .calendar-nav a {
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 0 1rem;
+        }
+        .calendar-nav strong {
+            font-size: 2rem;
+            font-weight: 600;
+        }
         table.calendar {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 2rem;
         }
-
         table.calendar th, table.calendar td {
             border: 1px solid #ccc;
             text-align: center;
             padding: 0.75rem;
         }
-
         .available {
             background-color: #d4edda;
             cursor: pointer;
         }
-
         .booked {
             background-color: #f8d7da;
             color: #a94442;
         }
-
-        .past {
-            background-color: #e2e3e5;
-            color: #6c757d;
-        }
-
-        .today {
-            font-weight: bold;
-            border: 2px solid black;
-        }
-
         .past {
             background-color: #e0e0e0;
             color: #777;
             pointer-events: none;
         }
-
+        .today {
+            font-weight: bold;
+            border: 2px solid black;
+        }
     </style>
 </head>
 <body class="is-preload">
 <div id="wrapper">
 
     <!-- Header -->
-    <header class="major">
-        <h1>
-            <a href="{{ url_for('calendar_view', month=month-1 if month > 1 else 12, year=year if month > 1 else year-1) }}">&#8592;</a>
-            {{ month_name }} {{ year }}
-            <a href="{{ url_for('calendar_view', month=month+1 if month < 12 else 1, year=year if month < 12 else year+1) }}">&#8594;</a>
-        </h1>
-        <p>Click an available (green) date below to book a gig for £50.</p>
+    <header id="header">
+        <a href="{{ url_for('html_page', page_name='index') }}" class="logo">Arnold Brothers Guitar</a>
     </header>
-
-
 
     <!-- Nav -->
     <nav id="nav">
@@ -74,12 +70,17 @@
     </nav>
 
     <!-- Main -->
-    <div id="main">
+    <div id="main" class="alt">
         <section class="post">
-            <header class="major">
-                <h1>Gig Availability</h1>
-                <p>Click a green date to book a gig for £50</p>
-            </header>
+            <div class="calendar-nav">
+                <a href="{{ url_for('calendar_view', month=month-1 if month > 1 else 12, year=year if month > 1 else year-1) }}">&#8592;</a>
+                <strong>{{ month_name }} {{ year }}</strong>
+                <a href="{{ url_for('calendar_view', month=month+1 if month < 12 else 1, year=year if month < 12 else year+1) }}">&#8594;</a>
+            </div>
+
+            <p style="font-style: italic; font-size: 1.1rem; color: #555;">
+                Choose a date from the calendar below to book us for your event. Available dates are highlighted in green.
+            </p>
 
             <table class="calendar">
                 <thead>
@@ -96,13 +97,11 @@
                             {% set month_of_day = day.split('-')[1]|int %}
                             {% set is_today = day == today %}
                             {% set is_past = day < today %}
-                            {% if month_of_day != current_month %}
-                                <td></td>  <!-- Padding for previous/next month -->
+                            {% if month_of_day != month %}
+                                <td></td>
                             {% elif day in booked_dates %}
                                 <td class="booked {% if is_today %}today{% endif %}">{{ day_num }}</td>
-
-
-                            {% elif is_past or is_today %}
+                            {% elif is_past %}
                                 <td class="past {% if is_today %}today{% endif %}">{{ day_num }}</td>
                             {% else %}
                                 <td class="available" onclick="bookDate('{{ day }}')">{{ day_num }}</td>

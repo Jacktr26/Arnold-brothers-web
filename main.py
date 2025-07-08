@@ -53,7 +53,7 @@ def gigs():
 
 @app.route("/calendar")
 def calendar_view():
-    # Get selected month/year from query params or use current
+    # Get month/year from query string or default to current
     month = request.args.get('month', type=int)
     year = request.args.get('year', type=int)
     today = date.today()
@@ -61,6 +61,11 @@ def calendar_view():
     if not month or not year:
         month = today.month
         year = today.year
+
+    prev_month = 12 if month == 1 else month - 1
+    prev_year = year - 1 if month == 1 else year
+    next_month = 1 if month == 12 else month + 1
+    next_year = year + 1 if month == 12 else year
 
     cal = calendar.Calendar()
     month_days = cal.monthdatescalendar(year, month)
@@ -76,9 +81,12 @@ def calendar_view():
         today=today_str,
         month=month,
         year=year,
-        month_name=calendar.month_name[month]
+        month_name=calendar.month_name[month],
+        prev_month=prev_month,
+        prev_year=prev_year,
+        next_month=next_month,
+        next_year=next_year
     )
-
 
 @app.route("/booking")
 def booking():
@@ -159,4 +167,3 @@ def write_to_csv(data):
 
 if __name__ == '__main__':
     app.run(debug=True)
-
