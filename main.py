@@ -1,9 +1,10 @@
-from flask import Flask, render_template, url_for, request, redirect
-import csv
-import stripe
+from datetime import datetime, timedelta, date
+import calendar
 import os
 import json
-from datetime import datetime, timedelta
+import csv
+import stripe
+from flask import Flask, render_template, request, redirect, url_for
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -13,13 +14,11 @@ stripe.api_key = os.getenv("STRIPE_SECRET_KEY")
 YOUR_DOMAIN = 'https://arnold-brothers-web.onrender.com'
 BOOKINGS_FILE = 'bookings.json'
 
-
-# --- Booking logic ---
-
+# --- Booking Logic ---
 def get_booked_dates():
     if os.path.exists(BOOKINGS_FILE):
         with open(BOOKINGS_FILE, 'r') as file:
-            return json.load(file)['booked_dates']
+            return json.load(file).get('booked_dates', [])
     return []
 
 def add_booked_date(date):
@@ -29,9 +28,7 @@ def add_booked_date(date):
         with open(BOOKINGS_FILE, 'w') as file:
             json.dump({'booked_dates': data}, file)
 
-
 # --- Routes ---
-
 @app.route("/")
 def my_home():
     today = datetime.today().strftime('%B %d, %Y')
@@ -55,12 +52,36 @@ def gigs():
     return render_template("gigs.html")
 
 @app.route("/calendar")
-def calendar():
-    return render_template("calendar.html")
+def calendar_view():
+    # Get selected month/year from query params or use current
+    month = request.args.get('month', type=int)
+    year = request.args.get('year', type=int)
+    today = date.today()
+
+    if not month or not year:
+        month = today.month
+        year = today.year
+
+    cal = calendar.Calendar()
+    month_days = cal.monthdatescalendar(year, month)
+    weeks = [[day.strftime('%Y-%m-%d') for day in week] for week in month_days]
+
+    booked = get_booked_dates()
+    today_str = today.strftime('%Y-%m-%d')
+
+    return render_template(
+        "calendar.html",
+        weeks=weeks,
+        booked_dates=booked,
+        today=today_str,
+        month=month,
+        year=year,
+        month_name=calendar.month_name[month]
+    )
+
 
 @app.route("/booking")
 def booking():
-    # Generate next 30 days (excluding already booked)
     today = datetime.today()
     all_dates = [(today + timedelta(days=i)).strftime('%Y-%m-%d') for i in range(30)]
     booked = get_booked_dates()
@@ -112,9 +133,6 @@ def create_checkout_session():
     except Exception as e:
         return f"An error occurred: {e}", 500
 
-
-# --- Contact Form ---
-
 @app.route('/submit_form', methods=['POST'])
 def submit_form():
     try:
@@ -141,3 +159,4 @@ def write_to_csv(data):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
