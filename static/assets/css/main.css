@@ -2643,8 +2643,12 @@ input, select, textarea {
 			}
 
 			.image.main img {
-				width: 100%;
-			}
+              width: 100%;
+              height: auto;
+              max-height: 500px; /* change to 400–600px depending on what looks best */
+              object-fit: cover; /* keeps it neat without stretching */
+              border-radius: 8px; /* optional, adds subtle curve */
+            }
 
 		@media screen and (max-width: 736px) {
 
@@ -4719,5 +4723,265 @@ img.fixed-size {
   border-radius: 0.5em;
 }
 
+/* Center the content column a bit tighter for readability */
+.container, .inner, .post { max-width: 900px; margin: 0 auto; }
 
+/* Photo card */
+.band-photo {
+  margin: 2rem auto 1.25rem;
+  max-width: 1100px;             /* wider, matches page layout */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  background: #fff;
+}
 
+.band-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 2;           /* keeps a nice shape */
+  object-fit: cover;             /* crops gently instead of shrinking */
+}
+
+.band-photo figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  padding: .6rem .9rem .8rem;
+  border-top: 1px solid rgba(0,0,0,.05);
+}
+
+/* Paragraph readability */
+.post p {
+  line-height: 1.75;
+  max-width: 70ch;               /* ideal line length */
+  margin-inline: auto;           /* center paragraphs */
+}
+
+/* Widen the main content column */
+#main .inner,
+.wrapper .inner,
+.container,
+.post {
+  max-width: 1200px !important;   /* was ~800–900px */
+  margin: 0 auto !important;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Let the text breathe (remove the narrow 70ch cap) */
+.post p {
+  max-width: none !important;      /* remove paragraph width cap */
+  line-height: 1.75;
+}
+
+/* Make the photo card fill the content column and center */
+.band-photo {
+  max-width: none !important;      /* allow it to match the container width */
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.band-photo img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Center the About page photo and caption */
+.band-photo {
+  display: block;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+  max-width: 1000px;  /* adjust to match your content width */
+  width: 100%;
+}
+
+.band-photo img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px; /* optional */
+}
+
+.band-photo figcaption {
+  text-align: center;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Centered photo in fixed-size box, show full image (no crop) */
+.band-photo {
+  margin: 2rem auto 1.25rem;
+  max-width: 1100px;           /* width of the box (match your layout) */
+}
+
+/* The box: same size as before; adjust aspect-ratio to taste */
+.band-photo-inner {
+  width: 100%;
+  aspect-ratio: 3.3 / 2;         /* keeps that “same sized box” */
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  display: flex;               /* center the image perfectly */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;            /* hides any tiny overflow borders */
+}
+
+/* Show the entire image inside the box */
+.band-photo-inner img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;         /* <-- key: no cropping */
+  display: block;
+}
+
+/* Center caption; optional */
+.band-photo figcaption {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  padding: .6rem .9rem .8rem;
+}
+
+/* Clean footer contact section */
+#footer .contact-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#footer .contact-bottom p {
+  font-size: 1rem;
+  color: #555;
+}
+
+#footer .contact-bottom a {
+  color: inherit;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+/* Full-width contact form footer */
+#footer .contact-form-full {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#footer .contact-form-full form {
+  width: 100%;
+}
+
+#footer .footer-email {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.95rem;
+  opacity: 0.75;
+}
+
+#footer .footer-email a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* --- Contact form full-width style --- */
+#footer .contact-form {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#footer .contact-form form {
+  width: 100%;
+}
+
+/* Subtle email note under form */
+#footer .footer-email {
+  margin-top: 1rem;
+  text-align: left;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+#footer .footer-email a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Minimal footer contact line */
+#footer .contact-min{
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.25rem 1rem 2.5rem;
+  border-top: 1px solid rgba(0,0,0,.08);
+}
+
+#footer .contact-min .label{
+  font-size: .85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: #7a7a7a;
+  margin: 0 0 .25rem;
+}
+
+#footer .contact-min .addr{
+  margin: 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+#footer .contact-min .addr a{
+  color: inherit;
+  text-decoration: underline;
+}
+
+#footer .contact-min .addr .icon{
+  margin-right: .5rem;
+  opacity: .7;
+}
+
+/* --- Index page photo styling --- */
+.band-photo {
+  margin: 2rem auto 1.25rem;
+  max-width: 1000px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #fff;
+  text-align: center;
+}
+
+.band-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.band-photo figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  padding: 0.8rem;
+}
+
+/* About page photo: crop from the top so heads stay in */
+.about-photo .band-photo-inner { aspect-ratio: 3.3 / 2; } /* your current box */
+.about-photo .band-photo-inner img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;   /* <-- key line */
+  display: block;
+}
