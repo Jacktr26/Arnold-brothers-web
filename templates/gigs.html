@@ -22,8 +22,6 @@
 				<li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
 				<li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
 				<li class="active"><a href="{{ url_for('html_page', page_name='gigs.html') }}">Past Gigs</a></li>
-				<li><a href="{{ url_for('html_page', page_name='calendar') }}">Availability</a></li>
-
 
 			</ul>
 		</nav>
@@ -33,30 +31,45 @@
 			<section class="post">
 				<header class="major">
 					<h1>Our Gigs</h1>
-					<p>We’ve played at a mix of local venues, school events, small festivals, and parties.
-					Wherever we go, we bring a raw indie sound and a laid-back vibe that gets people moving.</p>
+					<p>We’ve played everywhere from local festivals to pubs and private events,
+					bringing indie covers and originals to crowds around Chester and beyond.</p>
 				</header>
 
 				<div class="row">
 					<div class="col-6 col-12-small">
-						<span class="image fit"><img src="{{ url_for('static', filename='images/gig1.jpg') }}" alt="" /></span>
-						<h3>Festival Field Jam</h3>
-						<p>A summer set under the stars — lots of grass, amps, and dancing.</p>
+						<span class="image fit">
+							<img class="gig-photo" src="{{ url_for('static', filename='images/zoo.jpg') }}" alt="" />
+						</span>
+						<h3>Chester Zoo</h3>
+						<p>We performed a live set at Chester Zoo, playing upbeat indie tunes for families and visitors throughout the day.
+						It was a proper summer atmosphere at an iconic Chester location.</p>
 					</div>
+
 					<div class="col-6 col-12-small">
-						<span class="image fit"><img src="{{ url_for('static', filename='images/gig2.jpg') }}" alt="" /></span>
-						<h3>High School Hall</h3>
-						<p>The very first gig we played. Nervous? Yeah. But the crowd was wild.</p>
+						<span class="image fit">
+							<img class="gig-photo" src="{{ url_for('static', filename='images/devafest.jpg') }}" alt="" />
+						</span>
+						<h3>Devafest</h3>
+						<p>One of our biggest festival slots with a proper stage, crowd, and atmosphere.
+						We mixed originals and indie anthems — people were singing with us the whole way through.</p>
 					</div>
+
 					<div class="col-6 col-12-small">
-						<span class="image fit"><img src="{{ url_for('static', filename='images/gig3.jpg') }}" alt="" /></span>
-						<h3>Back Garden Bash</h3>
-						<p>A private birthday gig that turned into a full-on indie mosh.</p>
+						<span class="image fit">
+							<img class="gig-photo" src="{{ url_for('static', filename='images/handbridge.jpg') }}" alt="" />
+						</span>
+						<h3>Handbridge Festival</h3>
+						<p>A proper community gig — people stopped, listened, and stayed for the full set.
+						One of the friendliest crowds we’ve played to.</p>
 					</div>
+
 					<div class="col-6 col-12-small">
-						<span class="image fit"><img src="{{ url_for('static', filename='images/gig4.jpg') }}" alt="" /></span>
-						<h3>Open Mic at the Hive</h3>
-						<p>Where we test new originals — low-key vibes and a great little crowd.</p>
+						<span class="image fit">
+							<img class="gig-photo" src="{{ url_for('static', filename='images/pub.jpg') }}" alt="" />
+						</span>
+						<h3>Local Pubs & Bars</h3>
+						<p>We regularly perform in pubs around Chester, bringing live indie guitar sets to weekend nights.
+						Always a good crowd and always different.</p>
 					</div>
 				</div>
 			</section>

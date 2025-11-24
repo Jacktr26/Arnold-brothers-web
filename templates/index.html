@@ -34,62 +34,72 @@
         <li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
         <li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
         <li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
-        <li><a href="{{ url_for('calendar_view') }}">Availability</a></li>
-
       </ul>
     </nav>
 
     <!-- Main -->
     <main id="main">
 
-      <!-- Featured Section -->
-      <article class="post featured">
-        <header class="major">
-          <span class="date">{{ today }}</span>
-          <h2>Two Guitars. One Pulse.</h2>
-          <p>Minimal setup, maximal texture. Fin and Dec blend clean chime and analog grit to deliver
-             an indie-rock sound that hits hard and feels real.</p>
-        </header>
+      <!-- Live Performances -->
+      <section class="post">
+        <div class="row">
+          <!-- Video left -->
+          <div class="col-6 col-12-small">
+            <video class="index-video" autoplay muted loop playsinline>
+              <source src="{{ url_for('static', filename='images/vid01.mov') }}" type="video/quicktime">
+            </video>
+          </div>
 
-        <!-- Main Band Photo -->
-        <figure class="band-photo">
-          <img src="{{ url_for('static', filename='images/decfin.jpg') }}"
-               alt="Fin and Dec — Arnold Brothers Guitar" loading="lazy" decoding="async">
-          <figcaption>Arnold Brothers Guitar — Chester, UK.</figcaption>
-        </figure>
-      </article>
-
-      <!-- Info Cards -->
-      <section class="posts">
-        <article>
-          <header><h2>Book Us</h2></header>
-          <img class="image fixed-size" src="{{ url_for('static', filename='images/cal1.jpg') }}" alt="Calendar preview">
-          <p>Need live guitar for your event, house party, or venue? Hit us up — we’re ready to play.</p>
-          <a href="{{ url_for('html_page', page_name='calendar') }}" class="button">Our Calendar</a>
-        </article>
-
-        <article>
-          <header><h2>Live Gigs</h2></header>
-          <video class="gig-video" autoplay muted loop playsinline>
-            <source src="{{ url_for('static', filename='images/vid01.mov') }}" type="video/quicktime">
-            Your browser does not support the video tag.
-          </video>
-          <p>We’ve played festivals, bars, and back-room gigs. Always loud, always tight. Check out our sets.</p>
-          <a href="{{ url_for('html_page', page_name='gigs') }}" class="button">Past Performances</a>
-        </article>
-
-        <article>
-          <header><h2>Original Music</h2></header>
-          <img class="image fixed-size" src="{{ url_for('static', filename='images/studio.JPG') }}" alt="In the studio">
-          <p>Currently recording our first EP — honest indie-rock with a raw, melodic edge.</p>
-        </article>
-
-        <article>
-          <header><h2>Our Gear</h2></header>
-          <img class="image fixed-size" src="{{ url_for('static', filename='images/gear.jpg') }}" alt="Guitars and amps">
-          <p>Fully self-contained setup: guitars, amps, pedals — ready for any stage or session.</p>
-        </article>
+          <!-- Text right -->
+          <div class="col-6 col-12-small">
+            <header class="major">
+              <h1>Live Performances</h1>
+            </header>
+            <p>
+              Two guitars, one pulse. Fin and Dec blend clean chime and analog grit to deliver an indie-rock sound
+              that feels live, loud and real. We’ve played festivals, pubs, school events and private parties
+              around Chester and beyond.
+            </p>
+            <p>
+              We can keep it stripped-back and chilled, or push it louder for a proper gig atmosphere.
+              If you’re running an event and want live guitar, we’re up for it.
+            </p>
+            <ul class="actions">
+              <li><a href="{{ url_for('html_page', page_name='gigs') }}" class="button">See Past Gigs</a></li>
+              <li><a href="{{ url_for('html_page', page_name='generic') }}" class="button alt">Book Us</a></li>
+            </ul>
+          </div>
+        </div>
       </section>
+
+      <!-- Original Music -->
+      <section class="post">
+        <div class="row">
+          <!-- Text left -->
+          <div class="col-6 col-12-small">
+            <header class="major">
+              <h2>Original Music</h2>
+            </header>
+            <p>
+              As well as covers, we write and play our own tracks — indie guitar tunes with melody, riffs and
+              a bit of grit. Our originals are starting to take up more space in our sets as we shape our sound.
+            </p>
+            <p>
+              We’re working on recording and releasing our first tracks. Keep an eye on this site and our socials
+              for demos, live clips and future releases.
+            </p>
+          </div>
+
+          <!-- Image right -->
+          <div class="col-6 col-12-small">
+            <span class="image fit">
+              <img class="index-media" src="{{ url_for('static', filename='images/studio.jpg') }}"
+                   alt="Arnold Brothers in the studio">
+            </span>
+          </div>
+        </div>
+      </section>
+
     </main>
 
     <!-- Footer -->
