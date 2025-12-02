@@ -40,6 +40,23 @@
     <!-- Main -->
     <main id="main">
 
+      <!-- Featured hero section (keep this) -->
+      <article class="post featured">
+        <header class="major">
+          <span class="date">{{ today }}</span>
+          <h2>Two Guitars. One Pulse.</h2>
+          <p>Minimal setup, maximal texture. Fin and Dec blend clean chime and analog grit to deliver
+             an indie-rock sound that hits hard and feels real.</p>
+        </header>
+
+        <!-- Main Band Photo -->
+        <figure class="band-photo">
+          <img src="{{ url_for('static', filename='images/decfin.jpg') }}"
+               alt="Fin and Dec — Arnold Brothers Guitar" loading="lazy" decoding="async">
+          <figcaption>Arnold Brothers Guitar — Chester, UK.</figcaption>
+        </figure>
+      </article>
+
       <!-- Live Performances -->
       <section class="post">
         <div class="row">
@@ -47,6 +64,7 @@
           <div class="col-6 col-12-small">
             <video class="index-video" autoplay muted loop playsinline>
               <source src="{{ url_for('static', filename='images/vid01.mov') }}" type="video/quicktime">
+              Your browser does not support the video tag.
             </video>
           </div>
 
@@ -93,7 +111,8 @@
           <!-- Image right -->
           <div class="col-6 col-12-small">
             <span class="image fit">
-              <img class="index-media" src="{{ url_for('static', filename='images/studio.jpg') }}"
+              <img class="index-media"
+                   src="{{ url_for('static', filename='images/studio.jpg') }}"
                    alt="Arnold Brothers in the studio">
             </span>
           </div>
