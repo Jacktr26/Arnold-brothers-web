@@ -1,6 +1,17 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
 
+@import url(fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+
+/* === BLANKA FONT === */
+@font-face {
+  font-family: 'Blanka';
+  src: url('../webfonts/Blanka-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*
 	Massively by HTML5 UP
 	html5up.net | @ajlkn
@@ -5015,4 +5026,47 @@ img.fixed-size {
     object-fit: cover;
     object-position: center 30%; /* THIS fixes the heads getting cut off */
     border-radius: 6px;
+}
+
+.brand-name {
+  font-family: 'Blanka', sans-serif;
+  letter-spacing: 0.25em;
+  color: #fff;
+  text-align: center;
+}
+
+/* =========================
+   ARNLD BRAND OVERRIDES
+   ========================= */
+
+/* Kill template headline fonts */
+h1, h2, h3, h4, h5, h6,
+#intro h1,
+#header .logo {
+  font-family: 'Blanka', sans-serif !important;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+body, p, li, a {
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+#intro h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  margin-bottom: 1rem;
+}
+
+/* === Tighten ARNLD intro spacing === */
+#intro {
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+#intro h1 {
+  margin-top: 0 !important;
 }

@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Arnold Brothers Guitar — Indie Rock Duo (Chester, UK)</title>
+  <title>ARNLD — Indie Guitar Project (Chester, UK)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <meta name="description" content="Arnold Brothers Guitar — Fin & Dec, an indie rock guitar duo from Chester, UK. Book us for parties, bars, and events." />
+  <meta name="description" content="ARNLD — a minimalist indie guitar project based in Chester, UK. Live performances, original music, and bookings." />
   <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/main.css') }}">
   <noscript><link rel="stylesheet" href="{{ url_for('static', filename='assets/css/noscript.css') }}" /></noscript>
 </head>
@@ -14,53 +14,67 @@
 
     <!-- Intro -->
     <div id="intro">
-      <h1>Arnold<br>Brothers</h1>
-      <p>Looking for some live guitar?<br>
-         We play parties, small gigs, or whatever you’ve got going on — bringing solid indie rock energy.</p>
+      <h1>ARNLD</h1>
+      <p>
+        Two guitars. One pulse.<br>
+        Minimal setup. Real sound.
+      </p>
       <ul class="actions">
-        <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+        <li>
+          <a href="#header" class="button icon solid solo fa-arrow-down scrolly">
+            Continue
+          </a>
+        </li>
       </ul>
     </div>
 
     <!-- Header -->
     <header id="header">
-      <a href="{{ url_for('html_page', page_name='index') }}" class="logo">Arnold Brothers Guitar</a>
+      <a href="{{ url_for('html_page', page_name='index') }}" class="logo">
+        ARNLD
+      </a>
     </header>
 
     <!-- Navigation -->
     <nav id="nav">
-      <ul class="links">
-        <li class="active"><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
-        <li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
-        <li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
-        <li><a href="{{ url_for('html_page', page_name='gigs') }}">Past Gigs</a></li>
-      </ul>
+        <ul class="links">
+            <li class="active"><a href="{{ url_for('html_page', page_name='index') }}">Home</a></li>
+            <li><a href="{{ url_for('html_page', page_name='generic') }}">Contact</a></li>
+            <li><a href="{{ url_for('html_page', page_name='elements') }}">About Us</a></li>
+            <li><a href="{{ url_for('html_page', page_name='gigs.html') }}">Past Gigs</a></li>
+        </ul>
     </nav>
 
     <!-- Main -->
     <main id="main">
 
-      <!-- Featured hero section (keep this) -->
+      <!-- Featured Section -->
       <article class="post featured">
         <header class="major">
           <span class="date">{{ today }}</span>
-          <h2>Two Guitars. One Pulse.</h2>
-          <p>Minimal setup, maximal texture. Fin and Dec blend clean chime and analog grit to deliver
-             an indie-rock sound that hits hard and feels real.</p>
+          <h2>Minimal Gear. Maximum Feel.</h2>
+          <p>
+            ARNLD blends clean guitar tones and analogue grit into a stripped-back,
+            high-energy indie sound. No excess — just texture, rhythm, and pulse.
+          </p>
         </header>
 
-        <!-- Main Band Photo -->
+        <!-- Main Image -->
         <figure class="band-photo">
-          <img src="{{ url_for('static', filename='images/decfin.jpg') }}"
-               alt="Fin and Dec — Arnold Brothers Guitar" loading="lazy" decoding="async">
-          <figcaption>Arnold Brothers Guitar — Chester, UK.</figcaption>
+          <img
+            src="{{ url_for('static', filename='images/decfin.jpg') }}"
+            alt="ARNLD — indie guitar project based in Chester"
+            loading="lazy"
+            decoding="async"
+          >
+          <figcaption>ARNLD — Chester, UK.</figcaption>
         </figure>
       </article>
 
       <!-- Live Performances -->
       <section class="post">
         <div class="row">
-          <!-- Video left -->
+
           <div class="col-6 col-12-small">
             <video class="index-video" autoplay muted loop playsinline>
               <source src="{{ url_for('static', filename='images/vid01.mov') }}" type="video/quicktime">
@@ -68,54 +82,63 @@
             </video>
           </div>
 
-          <!-- Text right -->
           <div class="col-6 col-12-small">
             <header class="major">
-              <h1>Live Performances</h1>
+              <h1>Live</h1>
             </header>
             <p>
-              Two guitars, one pulse. Fin and Dec blend clean chime and analog grit to deliver an indie-rock sound
-              that feels live, loud and real. We’ve played festivals, pubs, school events and private parties
-              around Chester and beyond.
+              From small rooms to packed floors, ARNLD delivers live guitar-driven sets
+              that feel raw, controlled, and genuinely loud when needed.
             </p>
             <p>
-              We can keep it stripped-back and chilled, or push it louder for a proper gig atmosphere.
-              If you’re running an event and want live guitar, we’re up for it.
+              We adapt to the room — chilled background sets or full-volume performance.
+              If you’re running an event and want live guitar, we’re in.
             </p>
             <ul class="actions">
-              <li><a href="{{ url_for('html_page', page_name='gigs') }}" class="button">See Past Gigs</a></li>
-              <li><a href="{{ url_for('html_page', page_name='generic') }}" class="button alt">Book Us</a></li>
+              <li>
+                <a href="{{ url_for('html_page', page_name='gigs') }}" class="button">
+                  Past Gigs
+                </a>
+              </li>
+              <li>
+                <a href="{{ url_for('html_page', page_name='generic') }}" class="button alt">
+                  Book ARNLD
+                </a>
+              </li>
             </ul>
           </div>
+
         </div>
       </section>
 
       <!-- Original Music -->
       <section class="post">
         <div class="row">
-          <!-- Text left -->
+
           <div class="col-6 col-12-small">
             <header class="major">
               <h2>Original Music</h2>
             </header>
             <p>
-              As well as covers, we write and play our own tracks — indie guitar tunes with melody, riffs and
-              a bit of grit. Our originals are starting to take up more space in our sets as we shape our sound.
+              Alongside live performances, ARNLD is developing original material —
+              melody-driven guitar tracks with space, restraint, and edge.
             </p>
             <p>
-              We’re working on recording and releasing our first tracks. Keep an eye on this site and our socials
-              for demos, live clips and future releases.
+              First releases are in progress. Clips, demos, and live recordings
+              will appear here and across our socials.
             </p>
           </div>
 
-          <!-- Image right -->
           <div class="col-6 col-12-small">
             <span class="image fit">
-              <img class="index-media"
-                   src="{{ url_for('static', filename='images/studio.jpg') }}"
-                   alt="Arnold Brothers in the studio">
+              <img
+                class="index-media"
+                src="{{ url_for('static', filename='images/studio.jpg') }}"
+                alt="ARNLD recording original music in the studio"
+              >
             </span>
           </div>
+
         </div>
       </section>
 
@@ -126,26 +149,31 @@
       <section class="contact-form">
         <form method="POST" action="/submit_form">
           <div class="fields">
+
             <div class="field">
               <label for="name">Name</label>
               <input type="text" name="name" id="name" required>
             </div>
+
             <div class="field">
               <label for="email">Email</label>
               <input type="email" name="email" id="email" required>
             </div>
+
             <div class="field">
               <label for="message">Message</label>
               <textarea name="message" id="message" rows="3" required></textarea>
             </div>
+
           </div>
+
           <ul class="actions">
             <li><input type="submit" value="Send Message"></li>
           </ul>
 
-          <!-- subtle email footer -->
           <p class="footer-email">
-            Prefer email? <a href="mailto:arnoldbrothersguitar@gmail.com">arnoldbrothersguitar@gmail.com</a>
+            Prefer email?
+            <a href="mailto:arnldmusic@gmail.com">arnldmusic@gmail.com</a>
           </p>
         </form>
       </section>
@@ -154,11 +182,12 @@
     <!-- Copyright -->
     <div id="copyright">
       <ul>
-        <li>&copy; Arnold Brothers Guitar</li>
+        <li>&copy; ARNLD</li>
         <li><a href="{{ url_for('privacy_policy') }}">Privacy Policy</a></li>
         <li>Design base: <a href="https://html5up.net" rel="noopener">HTML5 UP</a></li>
       </ul>
     </div>
+
   </div>
 
   <!-- Scripts -->
@@ -169,5 +198,6 @@
   <script src="{{ url_for('static', filename='assets/js/breakpoints.min.js') }}"></script>
   <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
   <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
+
 </body>
 </html>
